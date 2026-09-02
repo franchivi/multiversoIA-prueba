@@ -1,237 +1,406 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Multiverso IA — Consultoría y Automatización</title>
-  <meta name="description" content="Desarrollo, implantación y automatización de soluciones IA para PYMES. Resultados medibles, rentabilidad y escalabilidad." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiverso IA — Consultoría y Automatización con IA en Córdoba</title>
+
+  <meta name="description" content="Multiverso IA — Especialistas en desarrollo, implantación y automatización de procesos inteligentes con IA para PYMES. Córdoba, España.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.multiversoia.com/">
+  <meta property="og:title" content="Multiverso IA — Consultoría y Automatización">
+  <meta property="og:description" content="Especialistas en desarrollo, implantación y automatización de procesos inteligentes con IA para PYMES.">
+  <meta property="og:image" content="https://www.multiversoia.com/images/logo.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Multiverso IA — Consultoría y Automatización">
+  <meta name="twitter:description" content="Especialistas en desarrollo, implantación y automatización de procesos inteligentes con IA para PYMES.">
+  <meta name="twitter:image" content="https://www.multiversoia.com/images/logo.png">
+
+  <link rel="icon" href="images/logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="site-header" id="header">
-    <div class="container header-inner">
-      <a href="#inicio" class="logo">
-        <span class="logo-mark">M</span>
-        Multiverso IA
+  <!-- Fondo estelar -->
+  <canvas id="cosmos"></canvas>
+  <div class="nebula nebula-1"></div>
+  <div class="nebula nebula-2"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#inicio" class="brand">
+        <img src="images/logo.png" alt="Multiverso IA" class="brand-logo" onerror="this.style.display='none'">
+        <span>MULTIVERSO<em>IA</em></span>
       </a>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#proyectos">Proyectos</a></li>
-          <li><a href="#stack">Stack</a></li>
-          <li><a href="#sobre-mi">Sobre mí</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
+      <nav class="nav-menu" id="navMenu">
+        <a href="#servicios">Servicios</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#tecnologia">Tecnología</a>
+        <a href="#cv">Quién soy</a>
+        <a href="#contacto" class="nav-cta">Hablemos</a>
       </nav>
+      <button class="nav-burger" id="navBurger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- ============ HERO ============ -->
   <section class="hero" id="inicio">
-    <canvas class="hero-canvas" id="heroCanvas"></canvas>
-    <div class="container hero-content reveal">
-      <span class="hero-tag">IA aplicada a negocios reales</span>
-      <h1>
-        No hacemos demos.<br />
-        Hacemos <span class="accent">despliegues</span>.
+    <div class="hero-inner">
+      <p class="hero-kicker mono">// Córdoba · consultoría IA para PYMES</p>
+      <h1 class="hero-title">
+        <span class="line">Cada empresa</span>
+        <span class="line">es un <span class="grad">universo</span>.</span>
+        <span class="line">Nosotros lo <span class="grad-2">expandimos</span>.</span>
       </h1>
-      <p class="hero-lead">
-        Desarrollo de soluciones IA, automatización de flujos e implantación estratégica
-        para PYMES. Medimos resultados, no promesas.
+      <p class="hero-sub">
+        Desarrollo, implantación y automatización de procesos inteligentes.
+        Sin humo: IA que trabaja todos los días en tu negocio.
       </p>
-      <div>
-        <a href="#contacto" class="btn btn-primary">Solicitar auditoría</a>
-        <a href="#proyectos" class="btn btn-ghost">Ver proyectos</a>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn btn-solid">Solicitar auditoría IA</a>
+        <a href="#proyectos" class="btn btn-line">Ver proyectos reales</a>
+      </div>
+      <div class="hero-ticker mono" aria-hidden="true">
+        <div class="ticker-track">
+          <span>automatización de flujos</span><i>✦</i>
+          <span>modelos a medida</span><i>✦</i>
+          <span>Odoo</span><i>✦</i>
+          <span>WhatsApp Business</span><i>✦</i>
+          <span>análisis de datos</span><i>✦</i>
+          <span>ciberseguridad IA</span><i>✦</i>
+          <span>Docker</span><i>✦</i>
+          <span>APIs REST / GraphQL</span><i>✦</i>
+          <span>automatización de flujos</span><i>✦</i>
+          <span>modelos a medida</span><i>✦</i>
+          <span>Odoo</span><i>✦</i>
+          <span>WhatsApp Business</span><i>✦</i>
+          <span>análisis de datos</span><i>✦</i>
+          <span>ciberseguridad IA</span><i>✦</i>
+          <span>Docker</span><i>✦</i>
+          <span>APIs REST / GraphQL</span><i>✦</i>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Services -->
-  <section id="servicios">
-    <div class="container">
-      <div class="reveal">
-        <div class="section-label">Servicios</div>
-        <h2>Lo que hacemos, en serio</h2>
-        <p>Tres líneas de trabajo para pasar de “tenemos que usar IA” a “ya está funcionando”.</p>
+  <!-- ============ SERVICIOS ============ -->
+  <section class="section" id="servicios">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-num mono">01</span>
+        <h2>Nuestros Servicios</h2>
+        <p class="sec-sub">Tres caminos para pasar de «deberíamos usar IA» a «ya está funcionando».</p>
       </div>
-      <div class="services-grid">
-        <article class="service-card reveal">
-          <div class="service-icon">🧠</div>
-          <h3>Desarrollo de soluciones IA</h3>
-          <p>Modelos a medida para tu negocio. No importamos soluciones genéricas: diseñamos la arquitectura, entrenamos o ajustamos el modelo y lo integramos con tus sistemas.</p>
+      <div class="cards-3">
+        <article class="card reveal">
+          <div class="card-glyph">◈</div>
+          <h3>Desarrollo de Soluciones IA</h3>
+          <p>Modelos de inteligencia artificial a medida para resolver los desafíos específicos de tu negocio, optimizando decisiones y predicciones de manera ágil.</p>
         </article>
-        <article class="service-card reveal">
-          <div class="service-icon">⚙️</div>
-          <h3>Automatización de flujos</h3>
-          <p>Conectamos tus herramientas: Odoo, WhatsApp, Calendar, Drive, CRM… Eliminamos trabajo repetitivo, reducimos errores y recuperamos horas para tu equipo.</p>
+        <article class="card reveal" style="--d:.1s">
+          <div class="card-glyph">⟐</div>
+          <h3>Automatización de Flujos</h3>
+          <p>Conectamos tus herramientas y procesos para eliminar el trabajo repetitivo, aumentando la productividad de tu equipo drásticamente y sin errores.</p>
         </article>
-        <article class="service-card reveal">
-          <div class="service-icon">📈</div>
-          <h3>Implantación estratégica</h3>
-          <p>Acompañamiento end-to-end en la transformación digital: diagnosis, plan, ejecución y métricas. IA que escala sin convertirse en una carga técnica.</p>
+        <article class="card reveal" style="--d:.2s">
+          <div class="card-glyph">✧</div>
+          <h3>Implantación Estratégica</h3>
+          <p>Te acompañamos en la transformación digital de tu empresa asegurando que la IA se integre de manera natural, escalable y sumamente rentable.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- Projects -->
-  <section id="proyectos" style="background: var(--bg-surface);">
-    <div class="container">
-      <div class="reveal">
-        <div class="section-label">Proyectos</div>
-        <h2>De la idea al despliegue</h2>
-        <p>Una selección de trabajos donde la IA, el código y el diseño se encuentran.</p>
+  <!-- ============ PROYECTOS ============ -->
+  <section class="section" id="proyectos">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-num mono">02</span>
+        <h2>Nuestros Proyectos</h2>
+        <p class="sec-sub">Trabajo real, en producción, con clientes reales.</p>
       </div>
-      <div class="projects-list">
-        <a href="https://franchivi.github.io/NaturaTales/" target="_blank" rel="noopener" class="project-item reveal">
-          <div>
-            <div class="project-tag">Web & experiencia</div>
-            <div class="project-title">NaturaTales</div>
-            <p class="project-desc">Plataforma interactiva de naturaleza, vídeo y drones.</p>
-          </div>
-          <span class="project-link">Visitar →</span>
+      <div class="proj-grid">
+        <a class="proj reveal" href="https://franchivi.github.io/NaturaTales/" target="_blank" rel="noopener noreferrer">
+          <span class="proj-tag mono">Web & Experiencia</span>
+          <h3>NaturaTales</h3>
+          <p>Plataforma interactiva ambientada en la naturaleza y experiencias digitales inmersivas.</p>
+          <span class="proj-go">Visitar proyecto ↗</span>
         </a>
-        <a href="https://www.codechapa.com/" target="_blank" rel="noopener" class="project-item reveal">
-          <div>
-            <div class="project-tag">Digitalización</div>
-            <div class="project-title">CodeChapa</div>
-            <p class="project-desc">Web y presencia digital para talleres de automoción.</p>
-          </div>
-          <span class="project-link">Visitar →</span>
+        <a class="proj reveal" href="https://www.codechapa.com/" target="_blank" rel="noopener noreferrer" style="--d:.05s">
+          <span class="proj-tag mono">Digitalización</span>
+          <h3>CodeChapa</h3>
+          <p>Solución web y presencia digital especializada para talleres de chapa, pintura y automoción.</p>
+          <span class="proj-go">Visitar proyecto ↗</span>
         </a>
-        <a href="https://www.coreinsurancecordoba.com/" target="_blank" rel="noopener" class="project-item reveal">
-          <div>
-            <div class="project-tag">Sector seguros</div>
-            <div class="project-title">Core Insurance Córdoba</div>
-            <p class="project-desc">Portal web para correduría de seguros.</p>
-          </div>
-          <span class="project-link">Visitar →</span>
+        <a class="proj reveal" href="https://www.coreinsurancecordoba.com/" target="_blank" rel="noopener noreferrer" style="--d:.1s">
+          <span class="proj-tag mono">Sector Seguros</span>
+          <h3>Core Insurance Córdoba</h3>
+          <p>Portal web para correduría de seguros con asesoramiento integral y soluciones a medida.</p>
+          <span class="proj-go">Visitar proyecto ↗</span>
         </a>
-        <a href="https://www.campinglosvillares.es/" target="_blank" rel="noopener" class="project-item reveal">
-          <div>
-            <div class="project-tag">Turismo</div>
-            <div class="project-title">Camping Los Villares</div>
-            <p class="project-desc">Web oficial con sistema de reservas conectado.</p>
-          </div>
-          <span class="project-link">Visitar →</span>
+        <a class="proj reveal" href="https://lacucabonita.odoo.com/" target="_blank" rel="noopener noreferrer" style="--d:.15s">
+          <span class="proj-tag mono">Plataforma Odoo</span>
+          <h3>La Cuca Bonita</h3>
+          <p>Gestión comercial, portal de clientes y plataforma empresarial implementada en Odoo.</p>
+          <span class="proj-go">Visitar proyecto ↗</span>
         </a>
-        <a href="https://franchivi.github.io/laserwitch3d/index.html#inicio" target="_blank" rel="noopener" class="project-item reveal">
-          <div>
-            <div class="project-tag">Diseño & 3D</div>
-            <div class="project-title">LaserWitch 3D</div>
-            <p class="project-desc">Diseño, impresión 3D y corte láser de alta precisión.</p>
-          </div>
-          <span class="project-link">Visitar →</span>
+        <a class="proj reveal" href="https://franchivi.github.io/laserwitch3d/index.html#inicio" target="_blank" rel="noopener noreferrer" style="--d:.2s">
+          <span class="proj-tag mono">Diseño & 3D</span>
+          <h3>LaserWitch 3D</h3>
+          <p>Servicios de diseño, impresión 3D y grabado/corte láser con alta precisión técnica.</p>
+          <span class="proj-go">Visitar proyecto ↗</span>
+        </a>
+        <a class="proj reveal" href="https://www.campinglosvillares.es/" target="_blank" rel="noopener noreferrer" style="--d:.25s">
+          <span class="proj-tag mono">Turismo & Ocio</span>
+          <h3>Camping Los Villares</h3>
+          <p>Web oficial de información y reservas para el espacio de naturaleza y camping en Córdoba.</p>
+          <span class="proj-go">Visitar proyecto ↗</span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Stack -->
-  <section id="stack">
-    <div class="container">
-      <div class="reveal">
-        <div class="section-label">Stack</div>
-        <h2>Con qué trabajamos</h2>
-        <p>Tecnología probada, no modas.</p>
+  <!-- ============ TECNOLOGÍA ============ -->
+  <section class="section" id="tecnologia">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-num mono">03</span>
+        <h2>Arquitectura de Vanguardia</h2>
       </div>
-      <div class="stack-grid reveal">
-        <div class="stack-item">APIs REST / GraphQL</div>
-        <div class="stack-item">Microservicios</div>
-        <div class="stack-item">Docker</div>
-        <div class="stack-item">Python</div>
-        <div class="stack-item">Odoo</div>
-        <div class="stack-item">SQLite / PostgreSQL</div>
-        <div class="stack-item">Análisis de datos</div>
-        <div class="stack-item">Ciberseguridad aplicada</div>
-        <div class="stack-item">DaVinci Resolve</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About / CV -->
-  <section id="sobre-mi" style="background: var(--bg-surface);">
-    <div class="container">
-      <div class="reveal">
-        <div class="section-label">Sobre mí</div>
-        <h2>Francisco José Morales Cid</h2>
-        <p style="margin-bottom: 1.5rem;">
-          IA Manager y fundador de Multiverso IA. De Córdoba, con base técnica en DAM y una trayectoria
-          cruzando desarrollo, automatización, datos y ciberseguridad. AhoraAyudo a PYMES a usar IA
-          sin perder el control de sus sistemas ni de sus resultados.
-        </p>
-        <div class="cv-block">
-          <h3>Formación destacada</h3>
-          <ul style="list-style: none; margin-top: 0.75rem; display: grid; gap: 1rem;">
-            <li>
-              <div class="cv-meta">Mar 2026 – Jun 2026 · JASON FORMACIÓN</div>
-              <div>IA práctica para crear soluciones de negocio con Antigravity · 150 h</div>
-            </li>
-            <li>
-              <div class="cv-meta">Feb 2026 – Abr 2026 · Certificación especializada</div>
-              <div>Aplicaciones Prácticas de la IA en PYMES · 150 h</div>
-            </li>
-            <li>
-              <div class="cv-meta">Sep 2025 – Dic 2025 · Certificación especializada</div>
-              <div>Inteligencia Artificial y Ciberseguridad · 150 h</div>
-            </li>
-            <li>
-              <div class="cv-meta">Ene 2002 – Sep 2002 · Formación Profesional</div>
-              <div>Programador de Aplicaciones Informáticas · 950 h</div>
-            </li>
+      <div class="tech-split">
+        <div class="tech-copy reveal">
+          <p>Diseñamos sistemas preparados para el futuro. Nuestra metodología se basa en la <strong>integración con arquitecturas modernas</strong>, asegurando que cada solución sea escalable, segura y altamente eficiente.</p>
+          <p>Nos enfocamos en la <strong>optimización de recursos</strong>, utilizando infraestructuras cloud y modelos de IA eficientes cuando es necesario, garantizando el máximo rendimiento con el mínimo coste operativo.</p>
+          <ul class="tech-list mono">
+            <li>APIs RESTful y GraphQL</li>
+            <li>Microservicios y contenedores Docker</li>
+            <li>Procesamiento y análisis en tiempo real</li>
           </ul>
         </div>
-        <div class="cv-block" style="margin-top: 2rem;">
-          <h3>Competencias</h3>
-          <p style="margin-top: 0.5rem;">
-            APIs REST/GraphQL, microservicios, Docker, análisis de datos, ciberseguridad aplicada a la IA,
-            modelado 3D, edición de vídeo profesional, pilotaje de drones (AESA A1-A3) y diseño con AutoCAD/Photoshop.
-          </p>
+        <div class="tech-terminal reveal" aria-hidden="true">
+          <div class="term-bar"><i></i><i></i><i></i><span class="mono">multiverso@ia:~</span></div>
+          <pre class="mono" id="termText"></pre>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contacto">
-    <div class="container">
-      <div class="reveal">
-        <div class="section-label">Contacto</div>
+  <!-- ============ SOBRE / FILOSOFÍA ============ -->
+  <section class="section section-quote">
+    <div class="wrap">
+      <blockquote class="bigquote reveal">
+        «En Multiverso IA no solo implementamos tecnología; <span class="grad">transformamos negocios</span>.
+        Nuestra consultoría se centra en resultados medibles: rentabilidad, escalabilidad
+        y eficiencia operativa en el día a día.»
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ============ CV ============ -->
+  <section class="section" id="cv">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-num mono">04</span>
+        <h2>Quién está detrás</h2>
+      </div>
+
+      <div class="cv-hero reveal">
+        <div>
+          <h3>Francisco José Morales Cid</h3>
+          <p class="cv-role">IA Manager &amp; Especialista en Transformación Digital</p>
+          <p class="cv-loc mono">Córdoba, España · <a href="mailto:multiverso@outlook.com">multiverso@outlook.com</a></p>
+        </div>
+        <p class="cv-profile">Sólida base técnica en desarrollo de aplicaciones y especialización en la implementación estratégica de la Inteligencia Artificial en entornos empresariales. Experto en automatización de procesos, análisis de datos y ciberseguridad aplicada a la IA, enfocado en maximizar la eficiencia operativa y la competitividad de las PYMES.</p>
+      </div>
+
+      <div class="cv-cols">
+        <!-- Columna 1 -->
+        <div class="cv-col">
+          <div class="cv-block reveal">
+            <h4 class="cv-block-title">Educación Reglada</h4>
+            <details class="acc">
+              <summary>Técnico Superior en DAM <span class="mono acc-meta">Córdoba</span></summary>
+              <p>Desarrollo de Aplicaciones Multiplataforma. Equivalencia actual del Título de Técnico Especialista en Informática de Gestión. Formación completa en análisis, diseño y desarrollo de aplicaciones para múltiples plataformas: móvil, escritorio y web.</p>
+            </details>
+            <details class="acc">
+              <summary>Técnico Auxiliar en Secretariado <span class="mono acc-meta">Córdoba</span></summary>
+              <p>Rama Administrativa y Comercial. Gestión administrativa, contabilidad, comunicación empresarial y organización de oficinas.</p>
+            </details>
+          </div>
+
+          <div class="cv-block reveal">
+            <h4 class="cv-block-title">Certificación Especializada en IA y Tecnología</h4>
+            <details class="acc">
+              <summary>IA práctica con Antigravity <span class="mono acc-meta">2026 · 150 h</span></summary>
+              <p><strong>Programa GDPymes · JASON FORMACIÓN S.L.</strong></p>
+              <ul>
+                <li>Pensar el negocio con IA: mirada, criterio y enfoque humano</li>
+                <li>Detección de necesidades, problemas y fricciones en negocios reales</li>
+                <li>Ideación: pensar soluciones con IA</li>
+                <li>Antigravity: de la idea a una solución sin código</li>
+                <li>Elegir bien la IA: criterio y ecosistema</li>
+                <li>Uso responsable, legal y consciente</li>
+                <li>Taller de Proyecto Final: del problema real a la solución real</li>
+                <li>Kit Digital y oportunidades de financiación</li>
+              </ul>
+            </details>
+            <details class="acc">
+              <summary>Aplicaciones Prácticas de la IA en Pymes <span class="mono acc-meta">2026 · 150 h</span></summary>
+              <ul>
+                <li>Transformación Digital</li>
+                <li>Fundamentos de IA</li>
+                <li>Automatización de Procesos</li>
+                <li>Análisis de Datos</li>
+                <li>Escalabilidad de IA</li>
+              </ul>
+            </details>
+            <details class="acc">
+              <summary>IA y Ciberseguridad <span class="mono acc-meta">2025 · 150 h</span></summary>
+              <ul>
+                <li>Herramientas de IA para generación de contenido</li>
+                <li>Automatización</li>
+                <li>Ciberseguridad para usuarios de IA</li>
+                <li>Proyecto Integrador</li>
+              </ul>
+            </details>
+            <details class="acc">
+              <summary>Fundamentos de Robótica <span class="mono acc-meta">2024 · 50 h</span></summary>
+              <p>Programación, lógica y control de sistemas robóticos. Sensores, actuadores y microcontroladores.</p>
+            </details>
+            <details class="acc">
+              <summary>Programador de Aplicaciones Informáticas <span class="mono acc-meta">2002 · 950 h</span></summary>
+              <ul>
+                <li>Arquitectura de ordenadores</li>
+                <li>Metodologías de análisis</li>
+                <li>Lenguajes de programación</li>
+                <li>Control de proyectos</li>
+              </ul>
+            </details>
+          </div>
+        </div>
+
+        <!-- Columna 2 -->
+        <div class="cv-col">
+          <div class="cv-block reveal">
+            <h4 class="cv-block-title">Competencias Digitales y Gestión</h4>
+            <div class="chips">
+              <details class="chip"><summary>E-Learning &amp; Formación</summary><p>Formador de Formadores en E-Learning (120 h). Plataformas virtuales y creación de cursos online.</p></details>
+              <details class="chip"><summary>Sistemas y Nube</summary><p>Configuración de sistemas, almacenamiento cloud, herramientas colaborativas y seguridad digital.</p></details>
+              <details class="chip"><summary>Diseño e Impresión 3D</summary><p>Impresión 3D, tallado y corte láser. Modelado técnico y prototipado rápido.</p></details>
+              <details class="chip"><summary>Edición de Vídeo</summary><p>Edición profesional con DaVinci Resolve y grabación con equipo de alta calidad.</p></details>
+              <details class="chip"><summary>AutoCAD 2D/3D</summary><p>Modelado técnico. Diseño de planos, piezas y ensamblajes.</p></details>
+              <details class="chip"><summary>Photoshop Avanzado</summary><p>Retoque, composición, automatización gráfica y diseño de materiales.</p></details>
+              <details class="chip"><summary>Excel Avanzado &amp; Datos</summary><p>Análisis de datos y gestión empresarial: tablas dinámicas, macros y automatización.</p></details>
+              <details class="chip"><summary>Logística Sostenible</summary><p>Gestión inteligente de flotas y optimización de cadena de suministro.</p></details>
+            </div>
+          </div>
+
+          <div class="cv-block reveal">
+            <h4 class="cv-block-title">Idiomas, Certificaciones e Intereses</h4>
+            <details class="acc">
+              <summary>Idiomas: Inglés</summary>
+              <p>Especialización en textos informáticos, venta tecnológica y atención al público.</p>
+            </details>
+            <details class="acc">
+              <summary>Piloto de Drones — Licencia AESA A1-A3</summary>
+              <p>Certificación oficial de operador para operaciones aéreas. Vuelo de drones estabilizados y FPV (First Person View).</p>
+            </details>
+            <details class="acc">
+              <summary>Deporte e Intereses: Mountain Bike</summary>
+              <p>Apasionado de la innovación tecnológica y el diseño digital. Integrante de equipo de competición de MTB.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACTO ============ -->
+  <section class="section" id="contacto">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-num mono">05</span>
         <h2>Hablemos de tu proyecto</h2>
-        <p>Escríbeme directamente o usa WhatsApp para una llamada rápida.</p>
+        <p class="sec-sub">¿Tienes alguna duda o quieres empezar a trabajar con nosotros? Escríbenos directamente o utiliza el formulario.</p>
       </div>
-      <div class="contact-grid reveal">
-        <div class="contact-card">
-          <div class="label">Email</div>
-          <a href="mailto:francisco@multiversoia.com">francisco@multiversoia.com</a>
+      <div class="contact-split">
+        <div class="contact-side reveal">
+          <a class="c-item" href="mailto:multiverso@outlook.com">
+            <span class="c-label mono">Email</span>
+            <span class="c-value">multiverso@outlook.com</span>
+          </a>
+          <a class="c-item" href="tel:+34653418174">
+            <span class="c-label mono">Teléfono</span>
+            <span class="c-value">653 418 174</span>
+          </a>
+          <div class="c-item">
+            <span class="c-label mono">Ubicación</span>
+            <span class="c-value">Córdoba, España</span>
+          </div>
+          <a class="c-item c-wa" href="https://wa.me/34653418174" target="_blank" rel="noopener">
+            <span class="c-label mono">WhatsApp</span>
+            <span class="c-value">Respuesta rápida →</span>
+          </a>
         </div>
-        <div class="contact-card">
-          <div class="label">Teléfono</div>
-          <a href="tel:+34653418174">653 418 174</a>
-        </div>
-        <div class="contact-card">
-          <div class="label">Ubicación</div>
-          <div class="value">Córdoba, España</div>
-        </div>
-        <div class="contact-card">
-          <div class="label">WhatsApp</div>
-          <a href="https://wa.me/34653418174" target="_blank" rel="noopener">Enviar mensaje</a>
-        </div>
+        <form class="contact-form reveal" id="contactForm" action="https://formsubmit.co/multiverso@outlook.com" method="POST">
+          <div class="fg">
+            <label for="name">Nombre completo</label>
+            <input type="text" id="name" name="name" required placeholder="Tu nombre">
+          </div>
+          <div class="fg">
+            <label for="email">Email de contacto</label>
+            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+          </div>
+          <div class="fg">
+            <label for="subject">Asunto</label>
+            <input type="text" id="subject" name="subject" required placeholder="¿En qué podemos ayudarte?">
+          </div>
+          <div class="fg">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Cuéntanos más sobre tu proyecto..."></textarea>
+          </div>
+          <input type="hidden" name="_captcha" value="false">
+          <button type="submit" class="btn btn-solid btn-full" id="submitBtn">Enviar mensaje</button>
+          <div id="form-status"></div>
+        </form>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>© <span id="year"></span> Multiverso IA · Consultoría y Automatización · Todos los derechos reservados.</p>
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>
+        <span class="brand-foot">MULTIVERSO<em>IA</em></span>
+        <p>Consultoría IA y automatización de procesos.</p>
+      </div>
+      <div class="footer-contact mono">
+        <a href="mailto:multiverso@outlook.com">multiverso@outlook.com</a>
+        <a href="tel:+34653418174">653 418 174</a>
+        <span>Córdoba, España</span>
+      </div>
+    </div>
+    <div class="footer-bottom mono">
+      <p>© <span id="year"></span> Multiverso IA · Todos los derechos reservados</p>
     </div>
   </footer>
+
+  <!-- WhatsApp flotante -->
+  <a href="https://wa.me/34653418174" class="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 32 32" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.7.9 3.7 1.5 5.8 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9.9.9-4.7-.2-.4C5.5 17.7 5 16.4 5 15 5 9 9.9 4 16 4s11 5 11 11-4.9 10-11 10zm5.5-7.5c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.3 3.5 5.6 4.9.8.3 1.4.5 1.9.7.8.2 1.5.2 2.1.1.6-.1 1.8-.7 2.1-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.4z"/></svg>
+  </a>
 
   <script src="js/main.js"></script>
 </body>

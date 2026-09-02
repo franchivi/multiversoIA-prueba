@@ -1,114 +1,139 @@
-/* ============================================
-   MULTIVERSO IA — main.js
-   ============================================ */
+/* ═══════════════════════════════════════════
+   MULTIVERSO IA — main.js v2
+   ═══════════════════════════════════════════ */
 
-/* ---------- Year ---------- */
+/* Año */
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* ---------- Header scroll ---------- */
-const header = document.getElementById('header');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 40);
-});
+/* Nav scroll */
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('on', scrollY > 30), { passive: true });
 
-/* ---------- Reveal on scroll ---------- */
-const revealEls = document.querySelectorAll('.reveal');
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
+/* Burger móvil */
+const burger = document.getElementById('navBurger');
+const menu = document.getElementById('navMenu');
+burger.addEventListener('click', () => menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+/* Reveal */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
   });
-}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-revealEls.forEach(el => revealObserver.observe(el));
-
-/* ---------- Hero canvas: node network ---------- */
+/* ── Fondo estelar (canvas fijo, muy ligero) ── */
 (function () {
-  const canvas = document.getElementById('heroCanvas');
-  if (!canvas) return;
-
-  const ctx = canvas.getContext('2d');
-  let width, height, nodes, animFrame;
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const cv = document.getElementById('cosmos');
+  const cx = cv.getContext('2d');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let W, H, stars;
 
   function resize() {
-    const rect = canvas.parentElement.getBoundingClientRect();
-    width = rect.width;
-    height = rect.height;
-    canvas.width = width * devicePixelRatio;
-    canvas.height = height * devicePixelRatio;
-    canvas.style.width = width + 'px';
-    canvas.style.height = height + 'px';
-    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
-  }
-
-  function createNodes() {
-    const count = Math.floor((width * height) / 18000);
-    nodes = Array.from({ length: count }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.25,
-      vy: (Math.random() - 0.5) * 0.25,
-      r: Math.random() * 1.4 + 0.6,
+    W = cv.width = innerWidth * devicePixelRatio;
+    H = cv.height = innerHeight * devicePixelRatio;
+    cv.style.width = innerWidth + 'px';
+    cv.style.height = innerHeight + 'px';
+    stars = Array.from({ length: Math.min(160, innerWidth / 8) }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: (Math.random() * 1.1 + 0.3) * devicePixelRatio,
+      tw: Math.random() * Math.PI * 2,
+      sp: Math.random() * 0.015 + 0.004
     }));
   }
 
-  function draw() {
-    ctx.clearRect(0, 0, width, height);
+  function frame() {
+    cx.clearRect(0, 0, W, H);
+    for (const s of stars) {
+      s.tw += s.sp;
+      const a = 0.25 + Math.abs(Math.sin(s.tw)) * 0.55;
+      cx.globalAlpha = a;
+      cx.fillStyle = '#cfd6ea';
+      cx.beginPath();
+      cx.arc(s.x, s.y, s.r, 0, 7);
+      cx.fill();
+    }
+    cx.globalAlpha = 1;
+    if (!reduced) requestAnimationFrame(frame);
+  }
 
-    // Connections
-    ctx.strokeStyle = 'rgba(245, 158, 11, 0.12)';
-    ctx.lineWidth = 0.6;
-    for (let i = 0; i < nodes.length; i++) {
-      for (let j = i + 1; j < nodes.length; j++) {
-        const dx = nodes[i].x - nodes[j].x;
-        const dy = nodes[i].y - nodes[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 140) {
-          ctx.beginPath();
-          ctx.moveTo(nodes[i].x, nodes[i].y);
-          ctx.lineTo(nodes[j].x, nodes[j].y);
-          ctx.stroke();
-        }
+  resize();
+  frame();
+  addEventListener('resize', resize);
+})();
+
+/* ── Terminal typing ── */
+(function () {
+  const el = document.getElementById('termText');
+  if (!el) return;
+  const lines = [
+    '$ multiverso deploy --cliente pyme',
+    '✓ analizando procesos del negocio...',
+    '✓ detectados 14 flujos automatizables',
+    '✓ conectando Odoo ⇄ WhatsApp ⇄ Calendar',
+    '✓ desplegando modelo a medida...',
+    '✓ ciberseguridad: OK',
+    '✓ métricas activas: ROI en tiempo real',
+    '',
+    '→ resultado: -68% tareas manuales',
+    '→ tu equipo, a lo que importa.',
+    '$ _'
+  ];
+  let li = 0, ci = 0, out = '';
+  const io2 = new IntersectionObserver(es => {
+    if (es[0].isIntersecting) { io2.disconnect(); tick(); }
+  }, { threshold: 0.4 });
+  io2.observe(el);
+
+  function tick() {
+    if (li >= lines.length) return;
+    const line = lines[li];
+    if (ci < line.length) {
+      out += line[ci++];
+      el.textContent = out;
+      setTimeout(tick, 18 + Math.random() * 22);
+    } else {
+      out += '\n'; li++; ci = 0;
+      el.textContent = out;
+      setTimeout(tick, line.startsWith('$') ? 500 : 190);
+    }
+  }
+})();
+
+/* ── Formulario (FormSubmit AJAX) ── */
+(function () {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+  const btn = document.getElementById('submitBtn');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Enviando…';
+    try {
+      const res = await fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      status.style.display = 'block';
+      if (res.ok) {
+        status.textContent = '✓ Mensaje enviado. Te responderemos muy pronto.';
+        status.style.color = '#35d066';
+        form.reset();
+      } else {
+        throw new Error();
       }
+    } catch {
+      status.style.display = 'block';
+      status.textContent = '✗ No se pudo enviar. Escríbenos por WhatsApp o email.';
+      status.style.color = '#ff5f57';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Enviar mensaje';
     }
-
-    // Nodes
-    for (const n of nodes) {
-      ctx.fillStyle = 'rgba(245, 158, 11, 0.7)';
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-      ctx.fill();
-    }
-  }
-
-  function update() {
-    for (const n of nodes) {
-      n.x += n.vx;
-      n.y += n.vy;
-      if (n.x < 0 || n.x > width) n.vx *= -1;
-      if (n.y < 0 || n.y > height) n.vy *= -1;
-    }
-  }
-
-  function loop() {
-    if (!prefersReducedMotion) update();
-    draw();
-    animFrame = requestAnimationFrame(loop);
-  }
-
-  function init() {
-    cancelAnimationFrame(animFrame);
-    resize();
-    createNodes();
-    loop();
-  }
-
-  init();
-  window.addEventListener('resize', () => {
-    resize();
-    createNodes();
   });
 })();
