@@ -7,14 +7,11 @@
 
   <meta name="description" content="Multiverso IA — Especialistas en desarrollo, implantación y automatización de procesos inteligentes con IA para PYMES. Córdoba, España.">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.multiversoia.com/">
   <meta property="og:title" content="Multiverso IA — Consultoría y Automatización">
   <meta property="og:description" content="Especialistas en desarrollo, implantación y automatización de procesos inteligentes con IA para PYMES.">
   <meta property="og:image" content="https://www.multiversoia.com/images/logo.png">
-
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Multiverso IA — Consultoría y Automatización">
   <meta name="twitter:description" content="Especialistas en desarrollo, implantación y automatización de procesos inteligentes con IA para PYMES.">
@@ -30,7 +27,23 @@
 </head>
 <body>
 
-  <!-- Fondo estelar -->
+  <!-- Preloader -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader-core">
+      <span class="loader-brand">MULTIVERSO<em>IA</em></span>
+      <div class="loader-bar"><i id="loaderBar"></i></div>
+      <span class="loader-pct mono" id="loaderPct">0%</span>
+    </div>
+  </div>
+
+  <!-- Cursor personalizado (solo desktop) -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- Barra de progreso de scroll -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Fondo: campo estelar 3D con parallax -->
   <canvas id="cosmos"></canvas>
   <div class="nebula nebula-1"></div>
   <div class="nebula nebula-2"></div>
@@ -38,16 +51,16 @@
   <!-- ============ NAV ============ -->
   <header class="nav" id="nav">
     <div class="nav-inner">
-      <a href="#inicio" class="brand">
+      <a href="#inicio" class="brand" data-magnetic>
         <img src="images/logo.png" alt="Multiverso IA" class="brand-logo" onerror="this.style.display='none'">
         <span>MULTIVERSO<em>IA</em></span>
       </a>
       <nav class="nav-menu" id="navMenu">
-        <a href="#servicios">Servicios</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#tecnologia">Tecnología</a>
-        <a href="#cv">Quién soy</a>
-        <a href="#contacto" class="nav-cta">Hablemos</a>
+        <a href="#servicios" data-hover>Servicios</a>
+        <a href="#proyectos" data-hover>Proyectos</a>
+        <a href="#tecnologia" data-hover>Tecnología</a>
+        <a href="#cv" data-hover>Quién soy</a>
+        <a href="#contacto" class="nav-cta" data-magnetic>Hablemos</a>
       </nav>
       <button class="nav-burger" id="navBurger" aria-label="Menú">
         <span></span><span></span><span></span>
@@ -58,19 +71,19 @@
   <!-- ============ HERO ============ -->
   <section class="hero" id="inicio">
     <div class="hero-inner">
-      <p class="hero-kicker mono">// Córdoba · consultoría IA para PYMES</p>
-      <h1 class="hero-title">
-        <span class="line">Cada empresa</span>
-        <span class="line">es un <span class="grad">universo</span>.</span>
-        <span class="line">Nosotros lo <span class="grad-2">expandimos</span>.</span>
+      <p class="hero-kicker mono split-reveal">// Córdoba · consultoría IA para PYMES</p>
+      <h1 class="hero-title" id="heroTitle">
+        <span class="line-mask"><span class="line">Cada empresa</span></span>
+        <span class="line-mask"><span class="line">es un <span class="grad">universo</span>.</span></span>
+        <span class="line-mask"><span class="line">Nosotros lo <span class="grad-2">expandimos</span>.</span></span>
       </h1>
-      <p class="hero-sub">
+      <p class="hero-sub reveal">
         Desarrollo, implantación y automatización de procesos inteligentes.
         Sin humo: IA que trabaja todos los días en tu negocio.
       </p>
-      <div class="hero-actions">
-        <a href="#contacto" class="btn btn-solid">Solicitar auditoría IA</a>
-        <a href="#proyectos" class="btn btn-line">Ver proyectos reales</a>
+      <div class="hero-actions reveal" style="--d:.15s">
+        <a href="#contacto" class="btn btn-solid" data-magnetic>Solicitar auditoría IA</a>
+        <a href="#proyectos" class="btn btn-line" data-magnetic>Ver proyectos reales</a>
       </div>
       <div class="hero-ticker mono" aria-hidden="true">
         <div class="ticker-track">
@@ -93,6 +106,29 @@
         </div>
       </div>
     </div>
+    <div class="scroll-hint mono" aria-hidden="true">scroll<span class="scroll-line"></span></div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="stats-strip">
+    <div class="wrap stats-grid">
+      <div class="stat reveal">
+        <span class="stat-num mono"><b data-count="6">0</b></span>
+        <span class="stat-label">proyectos en producción</span>
+      </div>
+      <div class="stat reveal" style="--d:.08s">
+        <span class="stat-num mono"><b data-count="600">0</b>+</span>
+        <span class="stat-label">horas de formación IA</span>
+      </div>
+      <div class="stat reveal" style="--d:.16s">
+        <span class="stat-num mono"><b data-count="5">0</b></span>
+        <span class="stat-label">sectores digitalizados</span>
+      </div>
+      <div class="stat reveal" style="--d:.24s">
+        <span class="stat-num mono"><b data-count="20">0</b>+</span>
+        <span class="stat-label">años programando</span>
+      </div>
+    </div>
   </section>
 
   <!-- ============ SERVICIOS ============ -->
@@ -104,20 +140,23 @@
         <p class="sec-sub">Tres caminos para pasar de «deberíamos usar IA» a «ya está funcionando».</p>
       </div>
       <div class="cards-3">
-        <article class="card reveal">
+        <article class="card tilt reveal" data-hover>
           <div class="card-glyph">◈</div>
           <h3>Desarrollo de Soluciones IA</h3>
           <p>Modelos de inteligencia artificial a medida para resolver los desafíos específicos de tu negocio, optimizando decisiones y predicciones de manera ágil.</p>
+          <div class="card-shine"></div>
         </article>
-        <article class="card reveal" style="--d:.1s">
+        <article class="card tilt reveal" style="--d:.1s" data-hover>
           <div class="card-glyph">⟐</div>
           <h3>Automatización de Flujos</h3>
           <p>Conectamos tus herramientas y procesos para eliminar el trabajo repetitivo, aumentando la productividad de tu equipo drásticamente y sin errores.</p>
+          <div class="card-shine"></div>
         </article>
-        <article class="card reveal" style="--d:.2s">
+        <article class="card tilt reveal" style="--d:.2s" data-hover>
           <div class="card-glyph">✧</div>
           <h3>Implantación Estratégica</h3>
           <p>Te acompañamos en la transformación digital de tu empresa asegurando que la IA se integre de manera natural, escalable y sumamente rentable.</p>
+          <div class="card-shine"></div>
         </article>
       </div>
     </div>
@@ -132,37 +171,37 @@
         <p class="sec-sub">Trabajo real, en producción, con clientes reales.</p>
       </div>
       <div class="proj-grid">
-        <a class="proj reveal" href="https://franchivi.github.io/NaturaTales/" target="_blank" rel="noopener noreferrer">
+        <a class="proj tilt reveal" href="https://franchivi.github.io/NaturaTales/" target="_blank" rel="noopener noreferrer" data-hover>
           <span class="proj-tag mono">Web & Experiencia</span>
           <h3>NaturaTales</h3>
           <p>Plataforma interactiva ambientada en la naturaleza y experiencias digitales inmersivas.</p>
           <span class="proj-go">Visitar proyecto ↗</span>
         </a>
-        <a class="proj reveal" href="https://www.codechapa.com/" target="_blank" rel="noopener noreferrer" style="--d:.05s">
+        <a class="proj tilt reveal" href="https://www.codechapa.com/" target="_blank" rel="noopener noreferrer" style="--d:.05s" data-hover>
           <span class="proj-tag mono">Digitalización</span>
           <h3>CodeChapa</h3>
           <p>Solución web y presencia digital especializada para talleres de chapa, pintura y automoción.</p>
           <span class="proj-go">Visitar proyecto ↗</span>
         </a>
-        <a class="proj reveal" href="https://www.coreinsurancecordoba.com/" target="_blank" rel="noopener noreferrer" style="--d:.1s">
+        <a class="proj tilt reveal" href="https://www.coreinsurancecordoba.com/" target="_blank" rel="noopener noreferrer" style="--d:.1s" data-hover>
           <span class="proj-tag mono">Sector Seguros</span>
           <h3>Core Insurance Córdoba</h3>
           <p>Portal web para correduría de seguros con asesoramiento integral y soluciones a medida.</p>
           <span class="proj-go">Visitar proyecto ↗</span>
         </a>
-        <a class="proj reveal" href="https://lacucabonita.odoo.com/" target="_blank" rel="noopener noreferrer" style="--d:.15s">
+        <a class="proj tilt reveal" href="https://lacucabonita.odoo.com/" target="_blank" rel="noopener noreferrer" style="--d:.15s" data-hover>
           <span class="proj-tag mono">Plataforma Odoo</span>
           <h3>La Cuca Bonita</h3>
           <p>Gestión comercial, portal de clientes y plataforma empresarial implementada en Odoo.</p>
           <span class="proj-go">Visitar proyecto ↗</span>
         </a>
-        <a class="proj reveal" href="https://franchivi.github.io/laserwitch3d/index.html#inicio" target="_blank" rel="noopener noreferrer" style="--d:.2s">
+        <a class="proj tilt reveal" href="https://franchivi.github.io/laserwitch3d/index.html#inicio" target="_blank" rel="noopener noreferrer" style="--d:.2s" data-hover>
           <span class="proj-tag mono">Diseño & 3D</span>
           <h3>LaserWitch 3D</h3>
           <p>Servicios de diseño, impresión 3D y grabado/corte láser con alta precisión técnica.</p>
           <span class="proj-go">Visitar proyecto ↗</span>
         </a>
-        <a class="proj reveal" href="https://www.campinglosvillares.es/" target="_blank" rel="noopener noreferrer" style="--d:.25s">
+        <a class="proj tilt reveal" href="https://www.campinglosvillares.es/" target="_blank" rel="noopener noreferrer" style="--d:.25s" data-hover>
           <span class="proj-tag mono">Turismo & Ocio</span>
           <h3>Camping Los Villares</h3>
           <p>Web oficial de información y reservas para el espacio de naturaleza y camping en Córdoba.</p>
@@ -197,7 +236,7 @@
     </div>
   </section>
 
-  <!-- ============ SOBRE / FILOSOFÍA ============ -->
+  <!-- ============ QUOTE ============ -->
   <section class="section section-quote">
     <div class="wrap">
       <blockquote class="bigquote reveal">
@@ -226,7 +265,6 @@
       </div>
 
       <div class="cv-cols">
-        <!-- Columna 1 -->
         <div class="cv-col">
           <div class="cv-block reveal">
             <h4 class="cv-block-title">Educación Reglada</h4>
@@ -291,7 +329,6 @@
           </div>
         </div>
 
-        <!-- Columna 2 -->
         <div class="cv-col">
           <div class="cv-block reveal">
             <h4 class="cv-block-title">Competencias Digitales y Gestión</h4>
@@ -337,11 +374,11 @@
       </div>
       <div class="contact-split">
         <div class="contact-side reveal">
-          <a class="c-item" href="mailto:multiverso@outlook.com">
+          <a class="c-item" href="mailto:multiverso@outlook.com" data-hover>
             <span class="c-label mono">Email</span>
             <span class="c-value">multiverso@outlook.com</span>
           </a>
-          <a class="c-item" href="tel:+34653418174">
+          <a class="c-item" href="tel:+34653418174" data-hover>
             <span class="c-label mono">Teléfono</span>
             <span class="c-value">653 418 174</span>
           </a>
@@ -349,7 +386,7 @@
             <span class="c-label mono">Ubicación</span>
             <span class="c-value">Córdoba, España</span>
           </div>
-          <a class="c-item c-wa" href="https://wa.me/34653418174" target="_blank" rel="noopener">
+          <a class="c-item c-wa" href="https://wa.me/34653418174" target="_blank" rel="noopener" data-hover>
             <span class="c-label mono">WhatsApp</span>
             <span class="c-value">Respuesta rápida →</span>
           </a>
@@ -372,7 +409,7 @@
             <textarea id="message" name="message" rows="5" required placeholder="Cuéntanos más sobre tu proyecto..."></textarea>
           </div>
           <input type="hidden" name="_captcha" value="false">
-          <button type="submit" class="btn btn-solid btn-full" id="submitBtn">Enviar mensaje</button>
+          <button type="submit" class="btn btn-solid btn-full" id="submitBtn" data-magnetic>Enviar mensaje</button>
           <div id="form-status"></div>
         </form>
       </div>
@@ -387,8 +424,8 @@
         <p>Consultoría IA y automatización de procesos.</p>
       </div>
       <div class="footer-contact mono">
-        <a href="mailto:multiverso@outlook.com">multiverso@outlook.com</a>
-        <a href="tel:+34653418174">653 418 174</a>
+        <a href="mailto:multiverso@outlook.com" data-hover>multiverso@outlook.com</a>
+        <a href="tel:+34653418174" data-hover>653 418 174</a>
         <span>Córdoba, España</span>
       </div>
     </div>
@@ -397,7 +434,6 @@
     </div>
   </footer>
 
-  <!-- WhatsApp flotante -->
   <a href="https://wa.me/34653418174" class="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
     <svg viewBox="0 0 32 32" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.7.9 3.7 1.5 5.8 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9.9.9-4.7-.2-.4C5.5 17.7 5 16.4 5 15 5 9 9.9 4 16 4s11 5 11 11-4.9 10-11 10zm5.5-7.5c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.3 3.5 5.6 4.9.8.3 1.4.5 1.9.7.8.2 1.5.2 2.1.1.6-.1 1.8-.7 2.1-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.4z"/></svg>
   </a>
